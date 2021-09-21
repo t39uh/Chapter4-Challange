@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="@string/scissors"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/purple_500"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/img_user_rock"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="52dp"
+        android:tag="@string/rock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/ic_batu"
+        tools:srcCompat="@drawable/ic_batu" />
+
+    <ImageView
+        android:id="@+id/img_com_rock"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:tag="@string/rock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_user_rock"
+        app:srcCompat="@drawable/ic_batu"
+        tools:srcCompat="@drawable/ic_batu" />
+
+    <ImageView
+        android:id="@+id/img_user_scissors"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        android:tag="@string/scissors"
+        app:layout_constraintStart_toStartOf="@+id/img_user_rock"
+        app:layout_constraintTop_toBottomOf="@+id/img_user_rock"
+        app:srcCompat="@drawable/ic_gunting"
+        tools:srcCompat="@drawable/ic_gunting" />
+
+    <ImageView
+        android:id="@+id/img_com_scissors"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:tag="@string/scissors"
+        app:layout_constraintStart_toStartOf="@+id/img_com_rock"
+        app:layout_constraintTop_toTopOf="@+id/img_user_scissors"
+        app:srcCompat="@drawable/ic_gunting"
+        tools:srcCompat="@drawable/ic_gunting" />
+
+    <ImageView
+        android:id="@+id/img_user_paper"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        android:tag="@string/paper"
+        app:layout_constraintStart_toStartOf="@+id/img_user_scissors"
+        app:layout_constraintTop_toBottomOf="@+id/img_user_scissors"
+        app:srcCompat="@drawable/ic_kertas"
+        tools:srcCompat="@drawable/ic_kertas" />
+
+    <ImageView
+        android:id="@+id/img_com_paper"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:tag="@string/paper"
+        app:layout_constraintStart_toStartOf="@+id/img_com_scissors"
+        app:layout_constraintTop_toTopOf="@+id/img_user_paper"
+        app:srcCompat="@drawable/ic_kertas"
+        tools:srcCompat="@drawable/ic_kertas" />
+
+    <ImageView
+        android:id="@+id/img_refresh"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_refresh" />
+</androidx.constraintlayout.widget.ConstraintLayout>
