@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             )) {
                 hand.alpha = 1F
                 hand.setBackgroundColor(Color.TRANSPARENT)
-                tvResult.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50.0f)
+                tvResult.setTextSize(TypedValue.COMPLEX_UNIT_SP, 60.0f)
                 tvResult.setBackgroundColor(Color.TRANSPARENT)
                 tvResult.setTextColor(Color.RED)
                 tvResult.setText(R.string.vs)
@@ -70,10 +70,8 @@ class MainActivity : AppCompatActivity() {
     private fun toggleUserHand(imgUser: ImageView) {
         Log.i(TAG, "User choose: $userChoice")
         imgUser.setBackgroundResource(R.drawable.rounded_corner_frame)
-        imgUser.alpha = 1F
         for (hand in listOf(imgUserPaper, imgUserRock, imgUserScissors)) {
             if (hand.tag != userChoice) {
-                hand.alpha = 0.6F
                 hand.setBackgroundColor(Color.TRANSPARENT)
             }
         }
@@ -129,6 +127,6 @@ class MainActivity : AppCompatActivity() {
             tvResult.setBackgroundColor(Color.GREEN)
             tvResult.text = "Pemain 2\nMENANG !"
         }
-        Log.i(TAG, "Final result: $result")
+        Log.i(TAG, "Final result: ${tvResult.text.toString().replace('\n',' ')}")
     }
 }
