@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -56,7 +57,10 @@ class MainActivity : AppCompatActivity() {
                 imgComScissors
             )) {
                 hand.alpha = 1F
-                hand.setBackgroundColor(Color.WHITE)
+                hand.setBackgroundColor(Color.TRANSPARENT)
+                tvResult.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50.0f)
+                tvResult.setBackgroundColor(Color.TRANSPARENT)
+                tvResult.setTextColor(Color.RED)
                 tvResult.setText(R.string.vs)
             }
         }
@@ -65,12 +69,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun toggleUserHand(imgUser: ImageView) {
         Log.i(TAG, "User choose: $userChoice")
-        imgUser.setBackgroundColor(Color.MAGENTA)
+        imgUser.setBackgroundResource(R.drawable.rounded_corner_frame)
         imgUser.alpha = 1F
         for (hand in listOf(imgUserPaper, imgUserRock, imgUserScissors)) {
             if (hand.tag != userChoice) {
                 hand.alpha = 0.6F
-                hand.setBackgroundColor(Color.WHITE)
+                hand.setBackgroundColor(Color.TRANSPARENT)
             }
         }
         getComputerHand()
@@ -80,9 +84,9 @@ class MainActivity : AppCompatActivity() {
         for (hand in listOf(imgComPaper, imgComRock, imgComScissors)) {
             if (hand.tag != comChoice) {
                 hand.alpha = 0.6F
-                hand.setBackgroundColor(Color.WHITE)
+                hand.setBackgroundColor(Color.TRANSPARENT)
             } else {
-                hand.setBackgroundColor(Color.MAGENTA)
+                hand.setBackgroundResource(R.drawable.rounded_corner_frame)
                 hand.alpha = 1F
             }
         }
@@ -108,13 +112,22 @@ class MainActivity : AppCompatActivity() {
         val count = position[userChoice]!! - position[comChoice]!!
         if (userChoice == comChoice) {
             result = getString(R.string.draw)
-            tvResult.setText(R.string.draw)
+            tvResult.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40.0f)
+            tvResult.setTextColor(Color.WHITE)
+            tvResult.setBackgroundColor(Color.BLUE)
+            tvResult.setText("DRAW")
         } else if ((count == 1) || (count == -2)) {
             result = getString(R.string.win)
-            tvResult.setText(R.string.win)
+            tvResult.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25.0f)
+            tvResult.setTextColor(Color.WHITE)
+            tvResult.setBackgroundColor(Color.GREEN)
+            tvResult.text = "Pemain 1\nMENANG !"
         } else {
             result = getString(R.string.lose)
-            tvResult.setText(R.string.lose)
+            tvResult.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25.0f)
+            tvResult.setTextColor(Color.WHITE)
+            tvResult.setBackgroundColor(Color.GREEN)
+            tvResult.text = "Pemain 2\nMENANG !"
         }
         Log.i(TAG, "Final result: $result")
     }
